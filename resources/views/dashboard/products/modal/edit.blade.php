@@ -36,7 +36,7 @@
               </div>
                <div class="form-group ">
                 <label>Image</label>
-                <input type="file" name="image" class="form-control"  value="{{ old('image', $value->image) }}" required=""><br>
+                <input type="file" name="image" class="form-control"  value="{{ old('image', $value->image) }}" ><br>
                 <img src="{{ asset($value->image) }}" width="100" alt="">
               </div>
        </div>

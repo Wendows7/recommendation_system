@@ -1,18 +1,19 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Request;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DashboardUserController;
-use App\Http\Controllers\DashboardProfileController;
-use App\Http\Controllers\MemberController;
-use App\Http\Controllers\ParameterController;
-use App\Http\Controllers\ProductController;
 use App\Models\Member;
 use App\Models\Parameter;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
+use App\Http\Controllers\HomeController;
 use RealRashid\SweetAlert\Facades\Alert;
-
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ParameterController;
+use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\DashboardProductController;
+use App\Http\Controllers\DashboardProfileController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,12 +26,11 @@ use RealRashid\SweetAlert\Facades\Alert;
 |
 */
 
+// router for user interface
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/products', [ProductController::class, 'index']);
 
-Route::get('/', function() {
-    return view('index',[
-        'title' => 'Login'
-    ]);
-})->middleware('guest');
+
 
 // router for login & logout
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
@@ -48,7 +48,7 @@ Route::patch('/dashboard/profile/update', [DashboardProfileController::class, 'u
 Route::resource('/dashboard/user', DashboardUserController::class)->middleware('auth');
 
 // router for products
-Route::resource('/dashboard/products', ProductController::class)->middleware('auth');
+Route::resource('/dashboard/products', DashboardProductController::class)->middleware('auth');
 
 // router for members
 Route::resource('/dashboard/members', MemberController::class)->middleware('auth');
@@ -56,8 +56,7 @@ Route::resource('/dashboard/members', MemberController::class)->middleware('auth
 // router for parameters
 Route::resource('/dashboard/parameters', ParameterController::class)->middleware('auth');
 
-// router for user interface
-// Route::get('/dashboard/profile', [DashboardProfileController::class, 'index'])->middleware('auth');
+
 
 
 

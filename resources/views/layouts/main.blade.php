@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Agency - Start Bootstrap Theme</title>
+        <title>{{ $title }}</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{{ asset('user_assets/assets/favicon.ico') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('user_assets/assets/img/cat777.svg') }}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -19,6 +19,47 @@
     <body id="page-top">
     @include('partials/navbar')  
     @yield('body')
+
+    <!-- Portfolio Modals-->
+<!-- Portfolio item 1 modal popup-->
+@foreach ($products as $product)
+<div class="portfolio-modal modal fade" id="portfolioModal1{{ $product->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="user_assets/assets/img/close-icon.svg" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                                
+                            {{-- <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p> --}}
+                            <img class="img-fluid d-block mx-auto" src="{{ $product->image }}" width="250" alt="..." />
+                            <h2 class="text-uppercase">{{ $product->name }}</h2>
+                            <p> {!! $product->description !!}</p>
+                            {{-- <ul class="list-inline">
+                                <li>
+                                    <strong>Client:</strong>
+                                    Threads
+                                </li>
+                                <li>
+                                    <strong>Category:</strong>
+                                    Illustration
+                                </li>
+                            </ul> --}}
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Close Project
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
+
 
 
         <!-- Bootstrap core JS-->

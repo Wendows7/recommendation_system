@@ -19,6 +19,14 @@
   <link rel="stylesheet" href="{{ asset('assets/modules/owlcarousel2/dist/assets/owl.theme.default.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/modules/prism/prism.css') }}">
 
+  <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap-daterangepicker/daterangepicker.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/modules/select2/dist/css/select2.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/modules/jquery-selectric/selectric.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}"/>
+
+
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
@@ -64,11 +72,24 @@
   <script src="{{ asset('assets/modules/sweetalert/sweetalert.min.js') }}"></script>
   <script src="{{ asset('assets/modules/prism/prism.js') }}"></script>
 
+  <script src="{{ asset('assets/modules/cleave-js/dist/cleave.min.js') }}"></script>
+  <script src="{{ asset('assets/modules/cleave-js/dist/addons/cleave-phone.us.js') }}"></script>
+  <script src="{{ asset('assets/modules/jquery-pwstrength/jquery.pwstrength.min.js') }}"></script>
+  <script src="{{ asset('assets/modules/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+  <script src="{{ asset('assets/modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
+  <script src="{{ asset('assets/modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}"></script>
+  <script src="{{ asset('assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
+  <script src="{{ asset('assets/modules/select2/dist/js/select2.full.min.js') }}"></script>
+  <script src="{{ asset('assets/modules/jquery-selectric/jquery.selectric.min.js') }}"></script>
+
+
   <!-- Page Specific JS File -->
   <script src="{{ asset('assets/js/page/index.js ')}}"></script>
   <script src="{{ asset('assets/js/page/modules-datatables.js') }}"></script>
   <script src="{{ asset('assets/js/page/modules-sweetalert.js') }}"></script>
   <script src="{{ asset('assets/js/page/bootstrap-modal.js') }}"></script>
+  
+  <script src="{{ asset('assets/js/page/forms-advanced-forms.js') }}"></script>
   
   <!-- Template JS File -->
   <script src="{{ asset('assets/js/scripts.js')}}"></script>

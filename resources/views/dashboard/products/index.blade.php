@@ -50,7 +50,11 @@
                         </td>
                         <td>{{ $product->name }}</td>
                         <td>{!! $product->description !!}</td>
+                        @if ($product->image == null)
+                        <td><img src="{{ asset('user_assets/assets/img/blank-image.jpg') }}" width="100" height="100" alt=""></td>        
+                        @else    
                         <td><img src="{{ asset($product->image) }}" width="100" height="100" alt=""></td>
+                        @endif
                         {{-- <td>{{ $product->created_at }}</td>
                         <td>{{ $product->updated_at }}</td> --}}
                         <td>

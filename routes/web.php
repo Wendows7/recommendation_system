@@ -13,7 +13,13 @@ use App\Http\Controllers\ParameterController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\DashboardProfileController;
+use App\Http\Controllers\DashboardRatingsController;
+use App\Http\Controllers\DashboardRecommendationProductController;
+use App\Http\Controllers\DashboardUserProduct;
+use App\Http\Controllers\DashboardUserProductController;
+use App\Http\Controllers\DashboardUserRatingsController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RatingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,15 +35,15 @@ use App\Http\Controllers\ProductController;
 // router for user interface
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/products', [ProductController::class, 'index']);
+Route::get('/ratings', [RatingsController::class, 'index']);
+Route::get('ratings/{id}', [RatingsController::class, 'RecommendProducts']);
 
-
-
-// router for login & logout
+// router for login & logout admin
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
-// router for dashboard
+// router for dashboard admin
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 // router for profile
@@ -45,18 +51,28 @@ Route::get('/dashboard/profile', [DashboardProfileController::class, 'index'])->
 Route::patch('/dashboard/profile/update', [DashboardProfileController::class, 'update'])->middleware('auth');
 
 // router for user
-Route::resource('/dashboard/user', DashboardUserController::class)->middleware('auth');
+Route::resource('/user', DashboardUserController::class)->middleware('admin');
 
 // router for products
-Route::resource('/dashboard/products', DashboardProductController::class)->middleware('auth');
+Route::resource('/dashboard/products', DashboardProductController::class)->middleware('admin');
 
 // router for members
-Route::resource('/dashboard/members', MemberController::class)->middleware('auth');
+Route::resource('/dashboard/members', MemberController::class)->middleware('admin');
 
 // router for parameters
-Route::resource('/dashboard/parameters', ParameterController::class)->middleware('auth');
+Route::resource('/dashboard/parameters', ParameterController::class)->middleware('admin');
 
+// router for ratings
+Route::resource('/dashboard/ratings', DashboardRatingsController::class)->middleware('admin');
 
+// router for dashboard user
+Route::get("/dashboard/product_user", [DashboardUserProductController::class, 'index'])->middleware("auth");
+
+// router for ratings user
+Route::resource('/dashboard/ratings_user', DashboardUserRatingsController::class)->middleware('auth');
+
+// router for recommendation user
+Route::get("/dashboard/recommend_product", [DashboardRecommendationProductController::class, 'index'])->middleware("auth");
 
 
 

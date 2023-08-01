@@ -38,7 +38,18 @@ class MemberController extends Controller
      */
     public function store(StoreMemberRequest $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email:dns',
+            'age' => 'required:integer',
+            'gender' => 'required',
+            'password' => 'required|min:3',
+        ]);
+
+        Member::create($validatedData);
+
+        return redirect('/dashboard/members')->with('success', 'Success Insert Data');
+    
     }
 
     /**
@@ -62,7 +73,28 @@ class MemberController extends Controller
      */
     public function update(UpdateMemberRequest $request, Member $member)
     {
-        //
+        
+        $rules = [
+            'name' => 'required',
+            'email' => 'required|email:dns',
+            'age' => 'required:integer',
+            'gender' => 'required',
+            // 'password' => 'required|min:3',
+        ];
+        
+        $validatedData = $request->validate($rules);
+
+        if($request->password == ''){
+            $validatedData['password'] = $member->password;
+        }else{
+            // $rules['password'] = 'min:3';
+            $validatedData['password'] = bcrypt($request->password);
+        }
+        
+        Member::where('id', $member->id)->update($validatedData);
+     
+
+        return redirect('/dashboard/members')->with('success', 'success Update Member');
     }
 
     /**

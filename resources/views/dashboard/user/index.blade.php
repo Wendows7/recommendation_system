@@ -36,8 +36,9 @@
                         </th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Created At</th>
-                        <th>Updated At</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Level</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -51,8 +52,9 @@
                         <td >
                         {{ $user->email }}
                         </td>
-                        <td>{{ $user->created_at }}</td>
-                        <td>{{ $user->updated_at }}</td>
+                        <td>{{ $user->age }}</td>
+                        <td>{{ $user->gender }}</td>
+                        <td>{{ $user->level }}</td>
                         <td>
                             <button class="btn btn-icon editbtn icon-left btn-warning border-0"  data-toggle="modal" data-target="#editModal{{ $user->id }}"><i class="fas fa-exclamation-triangle"></i>Edit</button>
                           <form action="/dashboard/user/{{$user->id }} " method="POST" >

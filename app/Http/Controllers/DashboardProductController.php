@@ -21,7 +21,8 @@ class DashboardProductController extends Controller
         return view('dashboard.products.index',[
             'title' => 'Dashboard | Products',
             'selisihmenit' => $dashboard->showMinute(),
-            'products' => Product::latest()->get()
+            'products' => Product::latest()->get(),
+      
             
         ]);
     }

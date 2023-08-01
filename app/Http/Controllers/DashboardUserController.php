@@ -42,7 +42,10 @@ class DashboardUserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|min:5|max:255',
             'email' => 'required|email:dns|unique:users',
-            'password' => 'required'
+            'password' => 'required',
+            'age' => 'required',
+            'gender' => 'required',
+            'level' => 'required',
         ]);
 
         User::create($validatedData);
@@ -74,6 +77,9 @@ class DashboardUserController extends Controller
         $rules = [
             'name' => 'required|min:5|max:255',
             'email' => 'required|email:dns',
+            'age' => 'required',
+            'gender' => 'required',
+            'level' => 'required',
             // 'password' => 'min:3'
         ];
         

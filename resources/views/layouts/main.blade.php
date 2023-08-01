@@ -13,52 +13,15 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset('user_assets/css/styles.css') }}" rel="stylesheet" />
+        <!-- General CSS Files -->
     </head>
     <body id="page-top">
     @include('partials/navbar')  
     @yield('body')
-
-    <!-- Portfolio Modals-->
-<!-- Portfolio item 1 modal popup-->
-@foreach ($products as $product)
-<div class="portfolio-modal modal fade" id="portfolioModal1{{ $product->id }}" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="user_assets/assets/img/close-icon.svg" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Project details-->
-                                
-                            {{-- <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p> --}}
-                            <img class="img-fluid d-block mx-auto" src="{{ $product->image }}" width="250" alt="..." />
-                            <h2 class="text-uppercase">{{ $product->name }}</h2>
-                            <p> {!! $product->description !!}</p>
-                            {{-- <ul class="list-inline">
-                                <li>
-                                    <strong>Client:</strong>
-                                    Threads
-                                </li>
-                                <li>
-                                    <strong>Category:</strong>
-                                    Illustration
-                                </li>
-                            </ul> --}}
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endforeach
+    
 
 <!-- Footer-->
 <footer class="footer py-4">

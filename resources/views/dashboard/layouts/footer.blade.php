@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="footer-left">
-      Copyright &copy; {{ now()->format('Y') }}
+      Copyright &copy; Recommendation System {{ now()->format('Y') }}
     </div>
     <div class="footer-right">
       

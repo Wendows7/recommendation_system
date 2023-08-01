@@ -3,13 +3,13 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Add User</h5>
+        <h5 class="modal-title">Add Member</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form method="post" action="/dashboard/user" class="needs-validation" novalidate="">
+        <form method="post" action="/dashboard/members" class="needs-validation" novalidate="">
           @csrf
           <div class="card-body">
               <div class="form-group ">
@@ -19,7 +19,7 @@
                     Please fill this form
                   </div>
                 </div>
-                <div class="form-group ">
+              <div class="form-group ">
                   <label>Age</label>
                   <input type="number" name="age" class="form-control"  value="{{ old('age') }}" required="">
                   <div class="invalid-feedback">
@@ -32,14 +32,7 @@
                     <option value="pria">Pria</option>
                     <option value="wanita">Wanita</option>
                   </select>
-                </div>  
-                <div class="form-group">
-                  <label>Level</label>
-                  <select class="form-control selectric" name="level" value="{{ old('level') }}" required="">
-                    <option value="admin">Admin</option>
-                    <option value="user">User</option>
-                  </select>
-                </div>  
+                </div>     
                 
                 <div class="form-group ">
                   <label>Email</label>

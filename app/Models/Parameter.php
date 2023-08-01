@@ -12,4 +12,9 @@ class Parameter extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
+    }
 }

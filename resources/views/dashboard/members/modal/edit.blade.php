@@ -1,7 +1,7 @@
 
 
 {{-- start edit modal --}}
-@foreach ($users as $user => $value)
+@foreach ($members as $member => $value)
      
 <div class="modal fade" tabindex="-1" role="dialog" id="editModal{{ $value->id }}">
   <div class="modal-dialog" role="document">
@@ -13,7 +13,7 @@
        </button>
      </div>
      <div class="modal-body">
-       <form method="post" action="/dashboard/user/{{ $value->id }}" class="needs-validation" novalidate="">
+       <form method="post" action="/dashboard/members/{{ $value->id }}" class="needs-validation" novalidate="">
          @method('put')
          @csrf
          <div class="card-body">
@@ -24,28 +24,20 @@
                    Please fill this form
                  </div>
                </div>
-               <div class="form-group ">
-                <label>Age</label>
-                <input type="number" name="age" class="form-control"  value="{{ old('age', $value->age) }}" required="">
-                <div class="invalid-feedback">
-                  Please fill this form
-                </div>
-              </div>
-              <div class="form-group">
-               <label>Gender</label>
-               <select class="form-control selectric" name="gender" >
-                 <option value="pria" {{ $value->gender == "pria" ? 'selected' : '' }}>Pria</option>
-                 <option value="wanita" {{ $value->gender == "wanita" ? 'selected' : '' }}>Wanita</option>
-               </select>
-             </div> 
-              <div class="form-group">
-               <label>Level</label>
-               <select class="form-control selectric" name="level" >
-                 <option value="admin" {{ $value->gender == "admin" ? 'selected' : '' }}>Admin</option>
-                 <option value="user" {{ $value->gender == "user" ? 'selected' : '' }}>User</option>
-               </select>
-             </div> 
-           
+             <div class="form-group ">
+                 <label>Age</label>
+                 <input type="number" name="age" class="form-control"  value="{{ old('age', $value->age) }}" required="">
+                 <div class="invalid-feedback">
+                   Please fill this form
+                 </div>
+               </div>
+               <div class="form-group">
+                <label>Gender</label>
+                <select class="form-control selectric" name="gender" >
+                  <option value="pria" {{ $value->gender == "pria" ? 'selected' : '' }}>Pria</option>
+                  <option value="wanita" {{ $value->gender == "wanita" ? 'selected' : '' }}>Wanita</option>
+                </select>
+              </div> 
                
                <div class="form-group ">
                  <label>Email</label>

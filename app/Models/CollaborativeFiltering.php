@@ -52,7 +52,7 @@ class CollaborativeFiltering extends Model
     public function computeAverageRatings($ratings) {
         $newArrayRating = [];
         foreach($ratings as $key => $value){
-            $avgNilai = $value->where("user_id", $value->user_id)->where("parameter_id", 6)->avg("nilai");
+            $avgNilai = $value->where("user_id", $value->user_id)->where("parameter_id", 7)->avg("nilai");
             // dd($avgNilai);
             $newArrayRating[$value->user->name] = $avgNilai;
             // [

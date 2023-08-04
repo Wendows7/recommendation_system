@@ -37,13 +37,20 @@
               </div>
                <div class="form-group">
                 <label>Rating</label>
-                <select class="form-control selectric" name="nilai" >
+	<div class="star-group">
+		<input type="radio" class="star" id="one" name="nilai" value="1">
+		<input type="radio" class="star" id="two" name="nilai" value="2">
+		<input type="radio" class="star" id="three" name="nilai" value="3">
+		<input type="radio" class="star" id="four" name="nilai" value="4">
+		<input type="radio" class="star" id="five" name="nilai" value="5">
+</div>
+                {{-- <select class="form-control selectric" name="nilai" >
                   <option value="1" {{ $value->nilai == 1 ? 'selected' : '' }}>1</option>
                   <option value="2" {{ $value->nilai == 2 ? 'selected' : '' }}>2</option>
                   <option value="3" {{ $value->nilai == 3 ? 'selected' : '' }}>3</option>
                   <option value="4" {{ $value->nilai == 4 ? 'selected' : '' }}>4</option>
                   <option value="5" {{ $value->nilai == 5 ? 'selected' : '' }}>5</option>
-                </select>
+                </select> --}}
               </div>
        </div>
        <div class="modal-footer bg-whitesmoke br">

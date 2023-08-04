@@ -7,7 +7,7 @@
     <div class="container">
         <div class="masthead-subheading">Welcome To Cat Food Recommendation System</div>
         <div class="masthead-heading text-uppercase">Please Give Your Rating </div>
-        <a class="btn btn-primary btn-xl text-uppercase" href="#services">Give Your Rating</a>
+        <a class="btn btn-primary btn-xl text-uppercase" href="/login">Give Your Rating</a>
     </div>
 </header>
 <!-- Portfolio Grid-->
@@ -81,10 +81,10 @@
                                     Illustration
                                 </li>
                             </ul> --}}
-                            <a href="">
+                            <a href="/login">
                                 <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                    <i class="fas fa-xmark me-1"></i>
-                                    Close Project
+                                    <i class="fas fa-sign-in me-1"></i>
+                                    Give Rating
                                 </button>
                             </a>
                         </div>
@@ -98,4 +98,3 @@
 
 
 @endsection
-{{-- @extends('modal') --}}

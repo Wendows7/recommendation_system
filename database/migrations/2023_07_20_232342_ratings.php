@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('nilai');
             $table->foreignId('product_id');
-            $table->foreignId('member_id');
+            $table->foreignId('user_id');
             $table->foreignId('parameter_id');
             $table->timestamps();
         });

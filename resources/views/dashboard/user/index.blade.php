@@ -57,7 +57,7 @@
                         <td>{{ $user->level }}</td>
                         <td>
                             <button class="btn btn-icon editbtn icon-left btn-warning border-0"  data-toggle="modal" data-target="#editModal{{ $user->id }}"><i class="fas fa-exclamation-triangle"></i>Edit</button>
-                          <form action="/dashboard/user/{{$user->id }} " method="POST" >
+                          <form action="/user/{{$user->id }} " method="POST" >
                             @method('delete')
                             @csrf
                             <button  class="btn btn-icon icon-left btn-danger show_confirm mt-1 " ><i class="fas fa-times"></i>Delete</button>

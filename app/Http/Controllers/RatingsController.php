@@ -21,6 +21,7 @@ class RatingsController extends Controller
 
     public function RecommendProducts(Parameter $parameter, Rating $ratings)
     { 
+        
         $newrating = $ratings->with('product', 'parameter', 'user')->where('parameter_id', request('id'))->get()->unique("product_id");
         $newArrayRating = [];
         foreach($newrating as $key => $value){

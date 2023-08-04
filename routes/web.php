@@ -20,6 +20,7 @@ use App\Http\Controllers\DashboardUserProductController;
 use App\Http\Controllers\DashboardUserRatingsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RatingsController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,9 @@ Route::get('/products', [ProductController::class, 'index']);
 Route::get('/ratings', [RatingsController::class, 'index']);
 Route::get('ratings/{id}', [RatingsController::class, 'RecommendProducts']);
 
-// router for login & logout admin
+// router for register, login & logout admin
+Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
+Route::post('/register/create', [RegisterController::class, 'store'])->middleware('guest');
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
@@ -56,9 +59,6 @@ Route::resource('/user', DashboardUserController::class)->middleware('admin');
 // router for products
 Route::resource('/dashboard/products', DashboardProductController::class)->middleware('admin');
 
-// router for members
-Route::resource('/dashboard/members', MemberController::class)->middleware('admin');
-
 // router for parameters
 Route::resource('/dashboard/parameters', ParameterController::class)->middleware('admin');
 
@@ -71,9 +71,10 @@ Route::get("/dashboard/product_user", [DashboardUserProductController::class, 'i
 // router for ratings user
 Route::resource('/dashboard/ratings_user', DashboardUserRatingsController::class)->middleware('auth');
 
-// router for recommendation user
+// router for recommendation index
 Route::get("/dashboard/recommend_product", [DashboardRecommendationProductController::class, 'index'])->middleware("auth");
-
+// router for recommendation by parameter
+Route::get("/dashboard/recommend_product/{id}", [DashboardRecommendationProductController::class, 'Recommendation'])->middleware("auth");
 
 
 

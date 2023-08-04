@@ -50,7 +50,7 @@ class DashboardUserController extends Controller
 
         User::create($validatedData);
 
-        return redirect('/dashboard/user')->with('success', 'Success Insert Data');
+        return redirect('/user')->with('success', 'Success Insert Data');
     }
 
     /**
@@ -94,7 +94,7 @@ class DashboardUserController extends Controller
         User::where('id', $user->id)->update($validatedData);
      
 
-        return redirect('/dashboard/user')->with('success', 'success Update User');
+        return redirect('/user')->with('success', 'success Update User');
     }
 
     /**
@@ -103,7 +103,7 @@ class DashboardUserController extends Controller
     public function destroy(User $user)
     {
             User::destroy($user->id);
-            return redirect('/dashboard/user')->with('success', 'Success Delete Data');
+            return redirect('/user')->with('success', 'Success Delete Data');
         
     }
 }

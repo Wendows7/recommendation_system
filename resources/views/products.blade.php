@@ -13,7 +13,7 @@
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Product</h2>
             <h3 class="section-subheading text-muted">
-                This is all recommended products</h3>
+                This is all product</h3>
         </div>
         
         <div class="row">
@@ -55,9 +55,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="modal-body">
-                            <!-- Project details-->
-                                
-                            {{-- <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p> --}}
+
                             @if ($product->image == null)
                                 
                             <img class="img-fluid d-block mx-auto" src="user_assets/assets/img/blank-image.jpg" width="250" alt="..." />
@@ -67,20 +65,11 @@
                             @endif
                             <h2 class="text-uppercase">{{ $product->name }}</h2>
                             <p> {!! $product->description !!}</p>
-                            {{-- <ul class="list-inline">
-                                <li>
-                                    <strong>Client:</strong>
-                                    Threads
-                                </li>
-                                <li>
-                                    <strong>Category:</strong>
-                                    Illustration
-                                </li>
-                            </ul> --}}
-                            <a href="">
+          
+                            <a href="/login">
                                 <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                    <i class="fas fa-xmark me-1"></i>
-                                    Close Project
+                                    <i class="fas fa-sign-in me-1"></i>
+                                    Give Rating
                                 </button>
                             </a>
                         </div>

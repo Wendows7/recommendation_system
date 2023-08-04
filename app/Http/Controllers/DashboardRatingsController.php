@@ -52,7 +52,7 @@ class DashboardRatingsController extends Controller
 
         Rating::create($validatedData);
 
-        return redirect('/dashboard/user_product')->with('success', 'Success Insert Data');
+        return redirect('/dashboard/ratings')->with('success', 'Success Insert Data');
     
     }
 

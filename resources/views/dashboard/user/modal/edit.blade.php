@@ -13,7 +13,7 @@
        </button>
      </div>
      <div class="modal-body">
-       <form method="post" action="/dashboard/user/{{ $value->id }}" class="needs-validation" novalidate="">
+       <form method="post" action="/user/{{ $value->id }}" class="needs-validation" novalidate="">
          @method('put')
          @csrf
          <div class="card-body">
@@ -41,8 +41,8 @@
               <div class="form-group">
                <label>Level</label>
                <select class="form-control selectric" name="level" >
-                 <option value="admin" {{ $value->gender == "admin" ? 'selected' : '' }}>Admin</option>
-                 <option value="user" {{ $value->gender == "user" ? 'selected' : '' }}>User</option>
+                 <option value="admin" {{ $value->level == "admin" ? 'selected' : '' }}>Admin</option>
+                 <option value="user" {{ $value->level == "user" ? 'selected' : '' }}>User</option>
                </select>
              </div> 
            

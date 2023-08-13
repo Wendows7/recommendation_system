@@ -209,6 +209,6 @@ body {
 </div>
 </div>
   
+@include('dashboard/user_product/modal/create')
  @endsection
- @include('dashboard/user_product/modal/create')
 

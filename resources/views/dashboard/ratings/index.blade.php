@@ -75,10 +75,10 @@
           </div>
         </div>
   
+        @include('dashboard/ratings/modal/edit')
+        @include('dashboard/ratings/modal/create')
  @endsection
 
- @include('dashboard/ratings/modal/edit')
- @include('dashboard/ratings/modal/create')
  
 
 

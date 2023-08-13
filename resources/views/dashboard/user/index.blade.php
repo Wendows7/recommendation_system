@@ -73,11 +73,11 @@
             </div>
           </div>
         </div>
+        @include('dashboard/user/modal/edit')
+        @include('dashboard/user/modal/create')
   
  @endsection
 
- @include('dashboard/user/modal/edit')
- @include('dashboard/user/modal/create')
  
 
 

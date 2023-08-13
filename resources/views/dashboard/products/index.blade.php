@@ -76,10 +76,10 @@
           </div>
         </div>
   
+        @include('dashboard/products/modal/edit')
+        @include('dashboard/products/modal/create')
  @endsection
 
- @include('dashboard/products/modal/edit')
- @include('dashboard/products/modal/create')
  
 
 

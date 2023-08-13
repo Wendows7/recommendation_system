@@ -67,11 +67,11 @@
             </div>
           </div>
         </div>
+        @include('dashboard/parameters/modal/edit')
+        @include('dashboard/parameters/modal/create')
   
  @endsection
 
- @include('dashboard/parameters/modal/edit')
- @include('dashboard/parameters/modal/create')
  
 
 

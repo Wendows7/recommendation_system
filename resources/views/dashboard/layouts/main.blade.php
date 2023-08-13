@@ -46,7 +46,7 @@
 <!-- /END GA --></head>
 
 <body>
-  @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+  {{-- @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"]) --}}
   @include('sweetalert::alert')
   @include('dashboard/layouts/header')
   @include('dashboard/layouts/sidebar')

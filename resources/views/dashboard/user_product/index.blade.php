@@ -45,7 +45,7 @@ body {
 	.star {
 		transition: all 0.25s;
 	}
-
+	
 	.star:before,
 	.star:after {
 		transition: all 0.25s;
@@ -129,19 +129,19 @@ body {
 	#one {
 		transform: rotate(-15deg);
 	}
-
+	
 	#two {
 		transform: translateY(-20%) rotate(-7.5deg);
 	}
-
+	
 	#three {
 		transform: translateY(-30%);
 	}
-
+	
 	#four {
 		transform: translateY(-20%) rotate(7.5deg);
 	}
-
+	
 	#five {
 		transform: rotate(15deg);
 	}
@@ -159,26 +159,27 @@ body {
 }
 </style>
 @section('body')
-    
+@include('dashboard/user_product/modal/create')
+
 <!-- Main Content -->
 <div class="main-content">
-  <section class="section">
-    <div class="section-header">
-        <h1>Products Rating</h1>
-        <div class="section-header-breadcrumb">
+	<section class="section">
+		<div class="section-header">
+			<h1>Products Rating</h1>
+			<div class="section-header-breadcrumb">
           <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
           <div class="breadcrumb-item">Products Rating</div>
         </div>
       </div>
       <div class="row">
-          <div class="col-12">
+		  <div class="col-12">
               <div class="card">
-                  <div class="card-body">
-                      <h2 class="section-title">
-                        Please provide product ratings from 1 to 5 to get product recommendations</h2>
-                      <p class="section-lead">
-                        rating with several parameters below
-                        </p>              
+				  <div class="card-body">
+					  <h2 class="section-title">
+						  Please provide product ratings from 1 to 5 to get product recommendations</h2>
+						  <p class="section-lead">
+							  rating with several parameters below
+							</p>              
                         <div class="row">
                           @foreach ($products as $product)
                           <div class="col-12 col-md-6 col-lg-6">
@@ -209,6 +210,5 @@ body {
 </div>
 </div>
   
-@include('dashboard/user_product/modal/create')
  @endsection
 

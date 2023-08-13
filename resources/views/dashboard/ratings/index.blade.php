@@ -1,7 +1,9 @@
 @extends('dashboard.layouts.main')
 
 @section('body')
-    
+@include('dashboard/ratings/modal/edit')
+@include('dashboard/ratings/modal/create')
+
 <!-- Main Content -->
 <div class="main-content">
   <section class="section">
@@ -75,8 +77,6 @@
           </div>
         </div>
   
-        @include('dashboard/ratings/modal/edit')
-        @include('dashboard/ratings/modal/create')
  @endsection
 
  

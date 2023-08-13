@@ -1,6 +1,8 @@
 @extends('dashboard.layouts.main')
 
 @section('body')
+@include('dashboard/parameters/modal/edit')
+@include('dashboard/parameters/modal/create')
     
 <!-- Main Content -->
 <div class="main-content">
@@ -67,8 +69,6 @@
             </div>
           </div>
         </div>
-        @include('dashboard/parameters/modal/edit')
-        @include('dashboard/parameters/modal/create')
   
  @endsection
 

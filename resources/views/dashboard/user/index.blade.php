@@ -1,12 +1,14 @@
 @extends('dashboard.layouts.main')
 
 @section('body')
+@include('dashboard/user/modal/edit')
+@include('dashboard/user/modal/create')
     
 <!-- Main Content -->
 <div class="main-content">
   <section class="section">
     <div class="section-header">
-        <h1>Data value</h1>
+        <h1>Data Users</h1>
         <div class="section-header-breadcrumb">
           <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
           <div class="breadcrumb-item">Users</div>
@@ -73,8 +75,6 @@
             </div>
           </div>
         </div>
-        @include('dashboard/user/modal/edit')
-        @include('dashboard/user/modal/create')
   
  @endsection
 

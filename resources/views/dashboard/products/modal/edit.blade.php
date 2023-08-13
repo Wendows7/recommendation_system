@@ -36,8 +36,15 @@
               </div>
                <div class="form-group ">
                 <label>Image</label>
+                @if ($value->image === null)
+                    
+                <input type="file" name="image" class="form-control"  value="{{ old('image', $value->image) }}" ><br>
+                <img src="{{ asset('user_assets/assets/img/blank-image.jpg') }}" width="100" alt="">
+                @else
                 <input type="file" name="image" class="form-control"  value="{{ old('image', $value->image) }}" ><br>
                 <img src="{{ asset($value->image) }}" width="100" alt="">
+                    
+                @endif
               </div>
        </div>
        <div class="modal-footer bg-whitesmoke br">

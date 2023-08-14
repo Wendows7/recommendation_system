@@ -28,18 +28,22 @@ class DashboardProfileController extends Controller
         $rules = [
             'name' => 'required|min:5|max:255',
             'email' => 'required|email:dns',
+            'age' => 'required',
+            'gender' => 'required',
+            'level' => 'required',
             // 'password' => 'min:3'
         ];
         
         $validatedData = $request->validate($rules);
 
         if($request->password == ''){
-            $validatedData['password'] = $user->password;
+            $validatedData['password'] = auth()->user()->password;
         }else{
             // $rules['password'] = 'min:3';
             $validatedData['password'] = bcrypt($request->password);
         }
-        User::where('id', $user->id)->update($validatedData);
+        User::where('id', auth()->user()->id)->update($validatedData);
+     
 
         return redirect('/dashboard/profile')->with('success', 'success Update Profile');
     }

@@ -28,15 +28,32 @@
                 </div>
                 <div class="card-body">
                        
-                    <input type="hidden" name="id"  value="{{ auth()->user()->id }}">
+                    <input type="hidden" name="id" value="{{ auth()->user()->id }}">
+                    <input type="hidden" name="level"  value="{{ auth()->user()->level }}">
                   
                     <div class="form-group ">
                         <label>Name</label>
                         <input type="text" name="name" class="form-control" value="{{ auth()->user()->name }}" required="">
                         <div class="invalid-feedback">
-                          Please fill in the first name
+                          Please fill in the name
                         </div>
                       </div>
+
+                    <div class="form-group ">
+                        <label>Age</label>
+                        <input type="number" name="age" class="form-control" value="{{ auth()->user()->age }}" required="">
+                        <div class="invalid-feedback">
+                          Please fill in the age
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Gender</label>
+                        <select class="form-control selectric" name="gender" >
+                          <option value="pria" {{ auth()->user()->gender == "pria" ? 'selected' : '' }}>Pria</option>
+                          <option value="wanita" {{ auth()->user()->gender == "wanita" ? 'selected' : '' }}>Wanita</option>
+                        </select>
+                      </div> 
                       
                       <div class="form-group ">
                         <label>Email</label>

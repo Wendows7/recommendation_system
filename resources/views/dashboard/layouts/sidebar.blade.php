@@ -21,10 +21,10 @@
         <li class={{ Request::is('dashboard')? 'active' : '' }} ><a class="nav-link" href="/dashboard"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
         <li class={{ Request::is('dashboard/product_user*')? 'active' : '' }}><a class="nav-link" href="/dashboard/product_user"><i class="far fa-square"></i> <span>Products</span></a></li>
         <li class={{ Request::is('dashboard/recommend_product*')? 'active' : '' }}><a class="nav-link" href="/dashboard/recommend_product"><i class="fas fa-database"></i> <span>Recommend Product</span></a></li>
-       
+
       @endcan
       </ul>
-      
-          
+
+
        </aside>
   </div>

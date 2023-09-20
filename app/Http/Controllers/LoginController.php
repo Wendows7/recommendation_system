@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
-use RealRashid\SweetAlert\Facades\Alert;
-use App\Models\Login;
-use PhpParser\Node\Expr\FuncCall;
+
 
 class LoginController extends Controller
 {
@@ -27,7 +25,7 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        
+
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
@@ -36,18 +34,18 @@ class LoginController extends Controller
             return redirect()->intended('/dashboard')->with('success', 'Login Success');
         }
         return redirect('login')->with('error', 'Login Failed !');
-    
+
 
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
- 
+
         $request->session()->invalidate();
- 
+
         $request->session()->regenerateToken();
- 
+
     return redirect('/login');
     }
 }

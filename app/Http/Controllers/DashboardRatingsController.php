@@ -26,7 +26,7 @@ class DashboardRatingsController extends Controller
             'products' => Product::all(),
             'parameters' => Parameter::all(),
             'ratings' => Rating::latest()->get(),
-            
+
         ]);
     }
 
@@ -53,7 +53,7 @@ class DashboardRatingsController extends Controller
         Rating::create($validatedData);
 
         return redirect('/dashboard/ratings')->with('success', 'Success Insert Data');
-    
+
     }
 
     /**
@@ -82,14 +82,14 @@ class DashboardRatingsController extends Controller
             'product_id' => 'required',
             'user_id' => 'required',
             'parameter_id' => 'required',
-    
+
         ];
 
-        
+
         $validatedData = $request->validate($rules);
-        
+
         Rating::where('id', $rating->id)->update($validatedData);
-     
+
 
         return redirect('/dashboard/ratings')->with('success', 'success Update Rating');
     }

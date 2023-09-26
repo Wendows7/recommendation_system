@@ -5,7 +5,6 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>{{ $title }}</title>
   <link rel="icon" type="image/x-icon" href="{{ asset("user_assets/assets/img/cat777.svg") }}" />
-  
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css') }}">
@@ -32,7 +31,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
 
-  
+
 <!-- Start GA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
 <script>
@@ -62,7 +61,7 @@
   <script src="{{ asset('assets/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
   <script src="{{ asset('assets/modules/moment.min.js') }}"></script>
   <script src="{{ asset('assets/js/stisla.js') }}"></script>
-  
+
   <!-- JS Libraies -->
   <script src="{{ asset('assets/modules/jquery.sparkline.min.js') }}"></script>
   <script src="{{ asset('assets/modules/chart.min.js') }}"></script>
@@ -92,15 +91,15 @@
   <script src="{{ asset('assets/js/page/modules-datatables.js') }}"></script>
   <script src="{{ asset('assets/js/page/modules-sweetalert.js') }}"></script>
   <script src="{{ asset('assets/js/page/bootstrap-modal.js') }}"></script>
-  
+
   <script src="{{ asset('assets/js/page/forms-advanced-forms.js') }}"></script>
-  
+
   <!-- Template JS File -->
   <script src="{{ asset('assets/js/scripts.js')}}"></script>
   <script src="{{ asset('assets/js/custom.js')}}"></script>
 
   <script type="text/javascript">
- 
+
     $('.show_confirm').click(function(event) {
          var form =  $(this).closest("form");
          var name = $(this).data("name");
@@ -118,7 +117,7 @@
            }
          });
      });
- 
+
 </script>
 </body>
 </html>

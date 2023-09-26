@@ -2,7 +2,7 @@
 
 {{-- start edit modal --}}
 @foreach ($ratings as $rating => $value )
-     
+
 <div class="modal fade" tabindex="-1" role="dialog" id="editModal{{ $value->id }}">
   <div class="modal-dialog" role="document">
    <div class="modal-content">
@@ -19,9 +19,9 @@
          <div class="card-body">
              <div class="form-group ">
               <label>Member</label>
-              <select class="form-control selectric" name="member_id" >
+              <select class="form-control selectric" name="user_id" >
                 @foreach ($members as $member)
-                @if (old('member_id', $value->member_id) == $member->id)
+                @if (old('user_id', $value->user_id) == $member->id)
                 <option value="{{ $member->id }}" selected>{{ $member->name }}</option>
                 @else
                 <option value="{{ $member->id }}" >{{ $member->name }}</option>
@@ -29,7 +29,7 @@
                 @endforeach
               </select>
               </div>
-               
+
                <div class="form-group">
                 <label>Product</label>
                 <select class="form-control selectric" name="product_id" >

@@ -188,9 +188,9 @@ return [
         // 'Example' => App\Facades\Example::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
     ])->toArray(),
-    
 
-    
+
+
 
 ];
 

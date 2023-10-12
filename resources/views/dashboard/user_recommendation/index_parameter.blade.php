@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.main')
 @section('body')
-    
+
 <!-- Main Content -->
 <div class="main-content">
   <section class="section">
@@ -25,13 +25,13 @@
                 @endforeach
             </select>
         </div>
-        <button class="btn btn-primary" type="submit">Search</button>     
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
     <br>
       <center><h4>Sorry, you did not get product recommendations in this parameter</h4>
       </center>
       @else
-      
+
       <div class="row">
         <div class="col-12">
           <div class="card">
@@ -49,13 +49,13 @@
                         @endforeach
                     </select>
                 </div>
-                <button class="btn btn-primary" type="submit">Search</button>     
+                <button class="btn btn-primary" type="submit">Search</button>
             </form>
-              <h2 class="section-title">
+              {{-- <h2 class="section-title">
                         This is all recommendations product  for you</h2>
                       <p class="section-lead">
                         This product recommendations is taken from the results of calculating the value of the product that you have rated using the collaborative filtering method
-                        </p>        
+                        </p>
                         <div class="row">
                           @foreach ($productrecommend as $product)
                           <div class="col-12 col-md-6 col-lg-6">
@@ -68,7 +68,7 @@
                   <div class="card-body">
                     @if ($product["image"] == null)
                     <img src="{{ asset('user_assets/assets/img/blank-image.jpg') }}" width="250" height="250" alt="">
-                    @else                                
+                    @else
                     <img src="{{ $product["image"] }}" width="250" height="250" alt="">
                     @endif
                     <p>{!! $product["description"] !!}</p>
@@ -77,15 +77,43 @@
                 </div>
               </div>
               @endforeach
-            </div>      
-            
+            </div>       --}}
+
+
+                      <div class="table-responsive">
+                        <table class="table table-striped" id="table-1">
+                          <thead>
+                            <tr>
+                              <th class="text-center">
+                                No
+                              </th>
+                              <th>Product</th>
+                              <th>Score</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($productrecommend as $product)
+                            <tr>
+                              <td>
+                                {{ $loop->iteration }}
+                              </td>
+                              <td>{{ $product["name"] }}</td>
+                              <td>{{ $product["nilai"] }}</td>
+                            </tr>
+                            @endforeach
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+
           </div>
         </div>
       </div>
     </div>
     @endif
 </div>
-  
+
  @endsection
 
 

@@ -3,7 +3,7 @@
 @section('body')
 @include('dashboard/user/modal/edit')
 @include('dashboard/user/modal/create')
-    
+
 <!-- Main Content -->
 <div class="main-content">
   <section class="section">
@@ -31,7 +31,7 @@
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table table-striped" id="table-1">
-                    <thead>                                 
+                    <thead>
                       <tr>
                         <th class="text-center">
                           No
@@ -44,7 +44,7 @@
                         <th>Action</th>
                       </tr>
                     </thead>
-                    <tbody>                                 
+                    <tbody>
                       @foreach ($users as $user)
                       <tr>
                         <td>
@@ -64,7 +64,7 @@
                             @csrf
                             <button  class="btn btn-icon icon-left btn-danger show_confirm mt-1 " ><i class="fas fa-times"></i>Delete</button>
                           </form>
-                          
+
                         </td>
                       </tr>
                       @endforeach
@@ -75,10 +75,10 @@
             </div>
           </div>
         </div>
-  
+
  @endsection
 
- 
+
 
 
 

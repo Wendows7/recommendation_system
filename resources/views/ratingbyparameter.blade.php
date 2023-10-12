@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('body')
-    
+
 <br>
 <br>
 
@@ -27,7 +27,7 @@
                 </select>
             </div>
             <br>
-            <button class="btn btn-primary" type="submit">Search</button>     
+            <button class="btn btn-primary" type="submit">Search</button>
         </form>
         <br>
         {{-- @dd($ratings == false) --}}
@@ -47,14 +47,14 @@
                         @if ($value["product"]["image"] == null)
                         <img class="img-fluid" src="{{ asset('user_assets/assets/img/blank-image.jpg') }}"  alt="..." />
                         @else
-                        
+
                         <img class="img-fluid" src="{{ $value["product"]["image"] }}"  alt="..." />
                         @endif
                         <p>Description {!! $value["product"]["description"]  !!}</p>
                         <p>Score : <code>{{ $value["average"] }}</code> </p>
                     </div>
             </div>
-            
+
             <br>
         </div>
         @endforeach

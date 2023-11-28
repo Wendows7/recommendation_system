@@ -22,8 +22,8 @@ class DashboardProductController extends Controller
             'title' => 'Dashboard | Products',
             'selisihmenit' => $dashboard->showMinute(),
             'products' => Product::latest()->get(),
-      
-            
+
+
         ]);
     }
 
@@ -80,12 +80,12 @@ class DashboardProductController extends Controller
             'name' => 'required',
             'description' => 'required',
             'image' => 'image|file|max:2024',
-    
+
         ];
 
-        
+
         $validatedData = $request->validate($rules);
-        
+
         if($request->file('image')){
             if ($request->oldImage){
                 Storage::delete($request->oldImage);
@@ -93,7 +93,7 @@ class DashboardProductController extends Controller
             $validatedData['image'] = $request->file('image')->store('product-images');
         }
         Product::where('id', $product->id)->update($validatedData);
-     
+
 
         return redirect('/dashboard/products')->with('success', 'success Update Product');
     }

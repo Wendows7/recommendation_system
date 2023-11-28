@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\UsersImport;
 use App\Models\User;
 use App\Models\Dashboard;
-use Illuminate\Contracts\Validation\Rule;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class DashboardUserController extends Controller
 {
@@ -22,8 +22,21 @@ class DashboardUserController extends Controller
             'title' => 'Dashboard | User',
             'selisihmenit' => $dashboard->showMinute(),
             'users' => User::latest()->get()
-            
+
         ]);
+    }
+
+    public function importExcel(Request $request)
+    {
+        $validatedata = $request->validate([
+
+            'file' => 'required',
+
+         ]);
+
+         Excel::import(new UsersImport, $request->file("file"));
+
+         return redirect('/user')->with('success', 'File Excel Berhasil Di Upload');
     }
 
     /**
@@ -31,7 +44,7 @@ class DashboardUserController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -82,7 +95,7 @@ class DashboardUserController extends Controller
             'level' => 'required',
             // 'password' => 'min:3'
         ];
-        
+
         $validatedData = $request->validate($rules);
 
         if($request->password == ''){
@@ -92,7 +105,7 @@ class DashboardUserController extends Controller
             $validatedData['password'] = bcrypt($request->password);
         }
         User::where('id', $user->id)->update($validatedData);
-     
+
 
         return redirect('/user')->with('success', 'success Update User');
     }
@@ -104,6 +117,14 @@ class DashboardUserController extends Controller
     {
             User::destroy($user->id);
             return redirect('/user')->with('success', 'Success Delete Data');
-        
+
+    }
+
+    public function deleteAll()
+    {
+            $user = User::where("level", "user")->get();
+            User::destroy($user);
+            return redirect('/user')->with('success', 'Success Delete All Data');
+
     }
 }

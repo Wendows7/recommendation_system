@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rating;
+use App\Models\Parameter;
 class DashboardUserRatingsController extends Controller
 {
     /**
@@ -34,9 +35,20 @@ class DashboardUserRatingsController extends Controller
             'user_id' => 'required'
         ]);
 
-        Rating::create($validatedData);
+        $parameter = Parameter::where('id', $request["parameter_id"])->get();
 
-        return redirect('/dashboard/product_user')->with('success', 'Success Insert Data');
+        if(count(Rating::where("nilai", $request["nilai"])->where("product_id",$request["product_id"])
+        ->where("parameter_id",$request["parameter_id"])->where("user_id",$request["user_id"])->get()) > 0 )
+        {
+            return redirect('/dashboard/product_user')->with('error', 'Maaf, kamu sudah pernah merating produk ini dengan parameter ' .$parameter[0]->name);
+
+        }else{
+
+            Rating::create($validatedData);
+            return redirect('/dashboard/product_user')->with('success', 'Success Insert Data');
+        }
+
+
     }
 
     /**

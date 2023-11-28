@@ -2,7 +2,7 @@
 
 {{-- start edit modal --}}
 @foreach ($products as $product => $value )
-     
+
 <div class="modal fade" tabindex="-1" role="dialog" id="createModal{{ $value->id }}">
   <div class="modal-dialog" role="document">
    <div class="modal-content">
@@ -16,7 +16,7 @@
        <form method="post" action="/dashboard/ratings_user/" enctype="multipart/form-data" class="needs-validation" novalidate="">
          @csrf
          <div class="card-body">
-          <input type="hidden" name="user_id" value="{{ auth()->user()->id }}"> 
+          <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                <div class="form-group">
                 <label>Product</label>
                 <select class="form-control selectric" name="product_id" >

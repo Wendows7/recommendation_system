@@ -77,9 +77,13 @@
                 </div>
               </div>
               @endforeach
-            </div>       --}}
+            </div> --}}
 
-
+            <h2 class="section-title">
+              This is all recommendations product  for you</h2>
+            <p class="section-lead">
+              This product recommendations is taken from the results of calculating the value of the product that you have rated using the collaborative filtering method
+              </p>
                       <div class="table-responsive">
                         <table class="table table-striped" id="table-1">
                           <thead>
@@ -103,10 +107,35 @@
                             @endforeach
                           </tbody>
                         </table>
-                      </div>
-                    </div>
 
+                        <h2 class="section-title">
+                            Item similarity</h2>
+                          <p class="section-lead">
+                            These are all the similarities between the products
+                            </p>
+                            @foreach ($similarity as $result =>$value)
+                            <h3>{{ $result }}</h3>
+                        <table class="table table-striped" id="table-1">
+                            <thead>
+                              <tr>
+                                  <th>Product</th>
+                                <th>Score</th>
+                              </tr>
 
+                            </thead>
+                            <tbody>
+                              @foreach ($value as $result1 =>$score)
+                              <tr>
+                                <td>{{ $result1 }}</td>
+                                <td>{{ $score }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    @endforeach
+
+                </div>
+            </div>
           </div>
         </div>
       </div>

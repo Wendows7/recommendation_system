@@ -21,8 +21,8 @@ class DashboardUserProductController extends Controller
             'products' => Product::latest()->paginate(6),
             'parameters' => Parameter::all(),
             'ratings' => Rating::all()
-      
-            
+
+
         ]);
     }
 }

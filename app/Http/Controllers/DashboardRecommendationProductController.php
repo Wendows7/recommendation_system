@@ -13,12 +13,12 @@ class DashboardRecommendationProductController extends Controller
 {
     public function index(Dashboard $dashboard, Parameter $parameter)
     {
-       
+
             return view("dashboard.user_recommendation.index",[
                 "title" => "Dashboard | Recommendation",
                 "selisihmenit" => $dashboard->showMinute(),
                 "parameters" => $parameter->all()
-    
+
             ]);
 
     }
@@ -27,7 +27,7 @@ class DashboardRecommendationProductController extends Controller
         // dd($request);
         $ratingAverage = $ratings->with('product', 'parameter', 'user')->where('parameter_id', request("id"))->get()->unique("user_id");
         $ratingMatrix = $ratings->with('product', 'parameter', 'user')->where("parameter_id", request("id"))->get();
-        
+
         $average = $collaborativeFiltering->computeAverageRatings($ratingAverage);
         $newRatings=[];
         foreach($ratingMatrix as $key =>$value){
@@ -38,29 +38,30 @@ class DashboardRecommendationProductController extends Controller
         {
             $itemsimilarity = $collaborativeFiltering->computeItemSimilarityMatrix($ratingMatrix, $average);
             $sumweight = $collaborativeFiltering->weightedSumRecommendation($newRatings[$userlogin], $itemsimilarity);
+
             $finalresult = [];
-            
+
             foreach($sumweight as $key => $value) {
                 $finalresult[] = [
                     "name" => $key,
                     "nilai" => $value,
                 ];
             }
-            
+
             $sumWeightName = array_column($finalresult, 'name');
             $products = Product::whereIn("name", $sumWeightName)->get();
             $resultsementara = [];
             foreach ($products as $product => $value) {
-                
+
                 $resultsementara[] =
-                
+
                 [
                     "name" => $value->name,
                     "image" => $value->image,
                     "description" => $value->description,
                 ];
             }
-            
+
             foreach ($resultsementara as $sumber)
             {
                 $result = array_search($sumber["name"], array_column($finalresult, "name"));
@@ -69,14 +70,15 @@ class DashboardRecommendationProductController extends Controller
                     }
                 }
 
-                // dd($sumweight);
-                
+                // dd($itemsimilarity);
+
             return view("dashboard.user_recommendation.index_parameter",[
                 "title" => "Dashboard | Recommendation",
                 "selisihmenit" => $dashboard->showMinute(),
                 "productrecommend" => collect($finalresult)->sortByDesc("nilai"),
-                "parameters" => $parameter->all()
-    
+                "parameters" => $parameter->all(),
+                "similarity" => $itemsimilarity
+
             ]);
         }else{
             return view("dashboard.user_recommendation.index_parameter",[
@@ -84,7 +86,7 @@ class DashboardRecommendationProductController extends Controller
                 "selisihmenit" => $dashboard->showMinute(),
                 "productrecommend" => [],
                 "parameters" => $parameter->all()
-    
+
             ]);
 
         }

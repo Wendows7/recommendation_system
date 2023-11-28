@@ -45,7 +45,7 @@ body {
 	.star {
 		transition: all 0.25s;
 	}
-	
+
 	.star:before,
 	.star:after {
 		transition: all 0.25s;
@@ -129,19 +129,19 @@ body {
 	#one {
 		transform: rotate(-15deg);
 	}
-	
+
 	#two {
 		transform: translateY(-20%) rotate(-7.5deg);
 	}
-	
+
 	#three {
 		transform: translateY(-30%);
 	}
-	
+
 	#four {
 		transform: translateY(-20%) rotate(7.5deg);
 	}
-	
+
 	#five {
 		transform: rotate(15deg);
 	}
@@ -179,7 +179,7 @@ body {
 						  Please provide product ratings from 1 to 5 to get product recommendations</h2>
 						  <p class="section-lead">
 							  rating with several parameters below
-							</p>              
+							</p>
                         <div class="row">
                           @foreach ($products as $product)
                           <div class="col-12 col-md-6 col-lg-6">
@@ -194,8 +194,8 @@ body {
                   <div class="card-body">
                     @if ($product->image == null)
                     <img src="{{ asset('user_assets/assets/img/blank-image.jpg') }}" width="250" height="250" alt="">
-                    @else                                
-                    <img src="{{ $product->image }}" width="250" height="250" alt="">
+                    @else
+                    <img src="/storage/{{ $product->image }}" width="250" height="250" alt="">
                     @endif
                     <p>{!! $product->description !!}</p>
                   </div>
@@ -209,6 +209,6 @@ body {
     </div>
 </div>
 </div>
-  
+
  @endsection
 

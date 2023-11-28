@@ -23,15 +23,28 @@
 
         <div class="row">
           <div class="col-12">
+            <form action="/dashboard/ratings/import" method="POST" enctype="multipart/form-data" >
+                @csrf
+                    <div class="form-group">
+                        <b>Import Data From Excel</b><br>
+                        <input type="file" name="file" placeholder="Choose file">
+                    </div>
+                    <button class="btn btn-icon icon-left btn-success" ><i class="fas fa-file"></i>Import</button>
+                    </form>
+                    <br>
            <button class="btn btn-icon icon-left btn-primary" data-toggle="modal" data-target="#createModal"><i class="far fa-user"></i>Add Rating</button>
-            <div class="card mt-3">
+           <form action="/dashboard/ratings/deleteAll" method="POST" id="delete-all">
+            @csrf
+            <button class="btn btn-icon icon-left btn-danger show_confirm mt-1" ><i class="fas fa-times"></i>Delete All</button>
+        </form>
+           <div class="card mt-3">
               <div class="card-header">
                 <h4>Table All Rating</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table table-striped" id="table-1">
-                    <thead>                                 
+                    <thead>
                       <tr>
                         <th class="text-center">
                           No
@@ -45,7 +58,7 @@
                         <th>Action</th>
                       </tr>
                     </thead>
-                    <tbody>                                 
+                    <tbody>
                       @foreach ($ratings as $rating)
                       <tr>
                         <td>
@@ -55,7 +68,7 @@
                         <td>{{ $rating->product->name  }}</td>
                         <td>{{ $rating->parameter->name  }}</td>
                         <td>{{ $rating->nilai  }}</td>
-                       
+
                         {{-- <td>{{ $rating->created_at }}</td>
                         <td>{{ $rating->updated_at }}</td> --}}
                         <td>
@@ -65,7 +78,7 @@
                             @csrf
                             <button  class="btn btn-icon icon-left btn-danger show_confirm mt-1 " ><i class="fas fa-times"></i>Delete</button>
                           </form>
-                          
+
                         </td>
                       </tr>
                       @endforeach
@@ -76,10 +89,10 @@
             </div>
           </div>
         </div>
-  
+
  @endsection
 
- 
+
 
 
 

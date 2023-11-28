@@ -55,6 +55,8 @@ Route::patch('/dashboard/profile/update', [DashboardProfileController::class, 'u
 
 // router for user
 Route::resource('/user', DashboardUserController::class)->middleware('admin');
+Route::post("/user/import", [DashboardUserController::class, "importExcel"])->middleware("auth");
+Route::post("/user/deleteAll", [DashboardUserController::class, "deleteAll"])->middleware("auth");
 
 // router for products
 Route::resource('/dashboard/products', DashboardProductController::class)->middleware('admin');
@@ -64,6 +66,9 @@ Route::resource('/dashboard/parameters', ParameterController::class)->middleware
 
 // router for ratings
 Route::resource('/dashboard/ratings', DashboardRatingsController::class)->middleware('admin');
+Route::post("/dashboard/ratings/deleteAll", [DashboardRatingsController::class, "deleteAll"])->middleware("admin");
+Route::post("/dashboard/ratings/import", [DashboardRatingsController::class, "importExcel"])->middleware("admin");
+
 
 // router for dashboard user
 Route::get("/dashboard/product_user", [DashboardUserProductController::class, 'index'])->middleware("auth");

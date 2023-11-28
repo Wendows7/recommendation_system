@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\RatingsImport;
 use App\Models\Rating;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Dashboard;
 use App\Models\Parameter;
 use App\Models\User;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class DashboardRatingsController extends Controller
 {
@@ -56,6 +59,19 @@ class DashboardRatingsController extends Controller
 
     }
 
+    public function importExcel(Request $request)
+    {
+        $validatedata = $request->validate([
+
+            'file' => 'required',
+
+         ]);
+
+         Excel::import(new RatingsImport, $request->file("file"));
+
+         return redirect('/dashboard/ratings')->with('success', 'File Excel Berhasil Di Upload');
+    }
+
     /**
      * Display the specified resource.
      */
@@ -101,5 +117,14 @@ class DashboardRatingsController extends Controller
     {
         Rating::destroy($rating->id);
         return redirect('/dashboard/ratings')->with('success', 'Success Delete Data');
+    }
+
+    public function deleteAll()
+    {
+        $allRating = Rating::all();
+        Rating::destroy($allRating);
+
+        return redirect('/dashboard/ratings')->with('success', 'Success Delete All Data');
+
     }
 }

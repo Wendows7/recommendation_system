@@ -18,7 +18,7 @@
             <h3 class="section-subheading text-muted">
                 These are some of the recommended products</h3>
             </div>
-            
+
             <div class="row">
                 @foreach ($products as $product)
                 <div class="col-lg-4 col-sm-6 mb-4">
@@ -29,11 +29,11 @@
                             <div class="portfolio-hover-content"><i class="fas fa-search fa-2x"></i></div>
                         </div>
                         @if ($product->image == null)
-                        <img class="img-fluid" src="user_assets/assets/img/blank-image.jpg"  alt="..." />                 
+                        <img class="img-fluid" src="user_assets/assets/img/blank-image.jpg"  alt="..." />
                         @else
-                        
-                        
-                        <img class="img-fluid" src="{{ $product->image }}"  alt="..." />
+
+
+                        <img class="img-fluid" src="storage/{{ $product->image }}"  alt="..." />
                         @endif
                     </a>
                     <div class="portfolio-caption">
@@ -60,13 +60,13 @@
                     <div class="col-lg-8">
                         <div class="modal-body">
                             <!-- Project details-->
-                                
+
                             {{-- <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p> --}}
                             @if ($product->image == null)
-                                
+
                             <img class="img-fluid d-block mx-auto" src="user_assets/assets/img/blank-image.jpg" width="250" alt="..." />
                             @else
-                                
+
                             <img class="img-fluid d-block mx-auto" src="{{ $product->image }}" width="250" alt="..." />
                             @endif
                             <h2 class="text-uppercase">{{ $product->name }}</h2>

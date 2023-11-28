@@ -22,9 +22,23 @@
         </p>
 
         <div class="row">
-          <div class="col-12">
-           <button class="btn btn-icon icon-left btn-primary" data-toggle="modal" data-target="#createModal"><i class="far fa-user"></i>Add User</button>
-            <div class="card mt-3">
+            <div class="col-12">
+            <form action="/user/import" method="POST" enctype="multipart/form-data" >
+                @csrf
+                    <div class="form-group">
+                        <b>Import Data From Excel</b><br>
+                        <input type="file" name="file" placeholder="Choose file">
+                    </div>
+                    <button class="btn btn-icon icon-left btn-success" ><i class="fas fa-file"></i>Import</button>
+                    </form>
+                    <br>
+                    <button class="btn btn-icon icon-left btn-primary" data-toggle="modal" data-target="#createModal"><i class="far fa-user"></i>Add User</button>
+                    <form action="/user/deleteAll" method="POST" id="delete-all">
+                        @csrf
+                        <button class="btn btn-icon icon-left btn-danger show_confirm mt-1" ><i class="fas fa-times"></i>Delete All</button>
+                    </form>
+                    <div class="card mt-3">
+
               <div class="card-header">
                 <h4>Table All User</h4>
               </div>

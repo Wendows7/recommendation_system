@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('password');
             $table->integer('age');
             $table->string('gender');
-            $table->string('level');
             $table->enum("level", ["admin", "user"])->default("user");
             $table->rememberToken();
             $table->timestamps();
